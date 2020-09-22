@@ -10,7 +10,7 @@ export default function DatePicker() {
         placeholder="mm/dd/yyyy"
         labelText="Date Picker label"
         id="date-picker-single"
-        autocomplete="off"
+        autoComplete="off"
       />
     </CarbonDatePicker>
   )
