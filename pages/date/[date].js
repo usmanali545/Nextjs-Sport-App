@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import { isAfter } from 'date-fns'
+import { groupByArray } from 'utiles/array'
 
 const LoadingNoSSR = dynamic(() => import('components/Loading'), {
   ssr: false,
@@ -16,6 +18,8 @@ export default function SportsOnDate({ data }) {
   if (!data || !data.length) {
     return <div>sorry </div>
   }
+  const gamesGroupedArray = groupByArray(data, 'dateView')
+  console.log(gamesGroupedArray)
 
   return <div>SportsOnDate</div>
 }
@@ -47,7 +51,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { data: data.reverse() }, // will be passed to the page component as props
     revalidate: 1,
   }
 }
