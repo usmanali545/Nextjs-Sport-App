@@ -1,4 +1,5 @@
 import DatePicker from '@/components/DatePicker'
+import SelectMonthDays from '@/components/SelectMonthDays'
 import { Button, Content } from 'carbon-components-react'
 import Header from 'components/Header'
 import Head from 'next/head'
@@ -18,7 +19,9 @@ export default function Home() {
             <div className="bx--col-sm-16 bx--col-lg-4">
               <DatePicker />
             </div>
-            <div className="bx--col-sm-16 bx--col-lg-12">days of month</div>
+            <div className="bx--col-sm-0 bx--col-lg-12">
+              <SelectMonthDays />
+            </div>
           </div>
           <div className="bx--row fitler__content">
             <div className="bx--col-lg-16">filters</div>
