@@ -5,10 +5,12 @@ $feature-flags: (
 
 @import '@carbon/themes/scss/themes';
 // Use the gray 100 theme
-@include carbon--theme($carbon--theme--g100);
+$carbon--theme: $carbon--theme--g100;
+@include carbon--theme();
 
 @import 'carbon-components/scss/globals/grid/_grid.scss';
 @import 'carbon-components/scss/components/date-picker/_date-picker.scss';
+@import 'carbon-components/scss/components/button/_button.scss';
 @import 'carbon-components/scss/components/ui-shell/_header.scss';
 @import 'carbon-components/scss/components/ui-shell/_header-panel.scss';
 @import 'carbon-components/scss/components/ui-shell/_theme.scss';
@@ -20,4 +22,9 @@ $feature-flags: (
 .fitler__content {
   padding-top: $spacing-05;
   padding-bottom: $spacing-07;
+}
+
+.page__content {
+  background-color: $gray-100;
+  color: $text-01;
 }

@@ -1,7 +1,7 @@
-import { Content } from 'carbon-components-react'
+import DatePicker from '@/components/DatePicker'
+import { Button, Content } from 'carbon-components-react'
 import Header from 'components/Header'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
@@ -12,10 +12,12 @@ export default function Home() {
       </Head>
 
       <Header />
-      <Content>
+      <Content className="page__content">
         <div className="bx--grid bx--grid--full-width">
           <div className="bx--row">
-            <div className="bx--col-sm-16 bx--col-lg-4">calendar</div>
+            <div className="bx--col-sm-16 bx--col-lg-4">
+              <DatePicker />
+            </div>
             <div className="bx--col-sm-16 bx--col-lg-12">days of month</div>
           </div>
           <div className="bx--row fitler__content">
