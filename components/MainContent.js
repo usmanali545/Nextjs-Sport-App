@@ -2,16 +2,16 @@ import SelectMonthDays from '@/components/SelectMonthDays'
 import { Column, Content, Grid, Row } from 'carbon-components-react'
 import DatePicker from '@/components/DatePicker'
 
-export default function MainContenet({ calledFrom }) {
+export default function MainContenet({ calledFrom, games, date }) {
   return (
     <Content className="page__content">
       <Grid fullWidth>
         <Row>
           <Column sm={16} lg={4}>
-            <DatePicker />
+            <DatePicker date={date} />
           </Column>
           <Column sm={0} lg={12}>
-            <SelectMonthDays />
+            <SelectMonthDays date={date} />
           </Column>
         </Row>
         <Row className="fitler__content">

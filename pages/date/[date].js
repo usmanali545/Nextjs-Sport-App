@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic'
 import { isAfter } from 'date-fns'
 import { groupByArray } from 'utiles/array'
 import GamesTable from '@/components/GamesTable'
+import MainContenet from '@/components/MainContent'
+import Head from 'next/head'
+import Header from '@/components/Header'
 
 const LoadingNoSSR = dynamic(() => import('components/Loading'), {
   ssr: false,
@@ -11,6 +14,7 @@ const LoadingNoSSR = dynamic(() => import('components/Loading'), {
 
 export default function SportsOnDate({ data }) {
   const router = useRouter()
+  console.log(router.query.date)
 
   if (router.isFallback) {
     return <LoadingNoSSR />
@@ -21,13 +25,27 @@ export default function SportsOnDate({ data }) {
   }
   const gamesGroupedArray = groupByArray(data, 'dateView')
 
-  return <GamesTable games={gamesGroupedArray} />
+  return (
+    <div>
+      <Head>
+        <title>Sports TV Program at {router.params?.date} </title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Header />
+      <MainContenet
+        calledFrom="date-single"
+        games={gamesGroupedArray}
+        date={new Date(router.query.date)}
+      />
+    </div>
+  )
 }
 
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { date: '' } }, // See the "paths" section below
+      { params: { date: '2020-09-23' } }, // See the "paths" section below
     ],
     fallback: true, // or false // See the "fallback" section below
   }
