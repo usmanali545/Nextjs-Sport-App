@@ -6,7 +6,11 @@ export default function Filters({
   setSelectedFilter,
 }) {
   function handleClick(filter) {
-    setSelectedFilter({ ...filter })
+    if (selectedFilter.id) {
+      setSelectedFilter({})
+    } else {
+      setSelectedFilter({ ...filter })
+    }
   }
   function handleClose() {
     setSelectedFilter({})
@@ -16,7 +20,7 @@ export default function Filters({
     <Tag
       key={filter?.id}
       id={'' + filter?.id}
-      type="cyan"
+      type={filter.id === selectedFilter.id ? 'magenta' : 'cyan'}
       filter={filter.id === selectedFilter.id}
       className="filter__tag"
       onClick={() => handleClick(filter)}
