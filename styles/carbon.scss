@@ -94,3 +94,7 @@ $carbon--theme: $carbon--theme--g100;
 .games-table__time {
   @include carbon--type-style('productive-heading-02');
 }
+
+.filter__tag {
+  cursor: pointer;
+}

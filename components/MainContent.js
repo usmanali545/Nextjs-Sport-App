@@ -3,8 +3,11 @@ import { Column, Content, Grid, Row } from 'carbon-components-react'
 import DatePicker from '@/components/DatePicker'
 import GamesTable from './GamesTable'
 import Filters from './Filters'
+import { useState } from 'react'
 
 export default function MainContenet({ calledFrom, games, date }) {
+  const [selectedFilter, setSelectedFilter] = useState({})
+
   let filters = []
   let filtersSet = new Set()
   if (games && games.length > 0) {
@@ -51,7 +54,11 @@ export default function MainContenet({ calledFrom, games, date }) {
         </Row>
         <Row className="fitler__content">
           <Column lg={16}>
-            <Filters filters={filters} />
+            <Filters
+              filters={filters}
+              setSelectedFilter={setSelectedFilter}
+              selectedFilter={selectedFilter}
+            />
           </Column>
         </Row>
         <Row>
