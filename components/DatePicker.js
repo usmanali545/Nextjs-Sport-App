@@ -27,6 +27,7 @@ export default function DatePicker({ date }) {
         labelText="Date Picker label"
         id="date-picker-single"
         autoComplete="off"
+        readOnly
       />
     </CarbonDatePicker>
   )
