@@ -11,8 +11,11 @@ export default function GamesTable({ games }) {
       </Row>
       {days.map((game, i) => (
         <Row className="games-table__game-row" key={i}>
-          <Column sm={16} lg={1} className="games-table__time">
-            {game?.timeView}
+          <Column sm={16} lg={1}>
+            <Grid>
+              <Row className="games-table__time">{game?.timeView}</Row>
+              <Row>{game?.channel?.name}</Row>
+            </Grid>
           </Column>
           <Column sm={16} lg={15}>
             <Grid>
