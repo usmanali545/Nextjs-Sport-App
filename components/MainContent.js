@@ -1,6 +1,7 @@
 import SelectMonthDays from '@/components/SelectMonthDays'
 import { Column, Content, Grid, Row } from 'carbon-components-react'
 import DatePicker from '@/components/DatePicker'
+import GamesTable from './GamesTable'
 
 export default function MainContenet({ calledFrom, games, date }) {
   return (
@@ -18,7 +19,9 @@ export default function MainContenet({ calledFrom, games, date }) {
           <Column lg={16}>filters</Column>
         </Row>
         <Row>
-          <Column lg={16}>content</Column>
+          <Column lg={16}>
+            <GamesTable games={games} />
+          </Column>
         </Row>
       </Grid>
     </Content>

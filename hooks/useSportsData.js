@@ -1,14 +1,18 @@
 import useSWR from 'swr'
+import { groupByArray } from 'utiles/array'
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 export default function useSportsData(date) {
-  const { data, error } = useSWR(`/api/sports?date=${date}`, fetcher)
+  const { data: result, error } = useSWR(`/api/sports?date=${date}`, fetcher)
 
-  // groupByArray(data, 'dateView')
+  let gamesGroupedArray = []
+  if (result?.data) {
+    gamesGroupedArray = groupByArray(result.data, 'dateView')
+  }
 
   return {
-    sports: data,
-    isLoading: !error && !data,
+    sports: gamesGroupedArray,
+    isLoading: !error && !result,
     isError: error,
   }
 }
