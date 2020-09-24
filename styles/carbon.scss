@@ -98,3 +98,7 @@ $carbon--theme: $carbon--theme--g100;
 .filter__tag {
   cursor: pointer;
 }
+
+.selected-month__today {
+  border-bottom: 1px solid $danger;
+}

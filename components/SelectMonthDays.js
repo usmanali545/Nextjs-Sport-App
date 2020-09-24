@@ -13,6 +13,7 @@ export default function SelectMonthDays({ date }) {
   let selectedDate = date || new Date()
   let selectedDay = selectedDate.getDate()
   let monthText = format(selectedDate, 'MMMM')
+  let todayDayNumber = new Date().getDate()
 
   let monthDays = eachDayOfInterval({
     start: startOfMonth(selectedDate),
@@ -32,7 +33,14 @@ export default function SelectMonthDays({ date }) {
             as={`/date/${dateAsUrlFormated}`}
             key={dayNumber}
           >
-            <Button kind="ghost" key={dayNumber} as="a">
+            <Button
+              kind={selectedDay === dayNumber ? 'tertiary' : 'ghost'}
+              key={dayNumber}
+              as="a"
+              className={
+                dayNumber === todayDayNumber ? 'selected-month__today' : ''
+              }
+            >
               {dayNumber}
             </Button>
           </NextLink>
