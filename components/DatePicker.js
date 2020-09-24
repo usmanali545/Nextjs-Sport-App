@@ -24,9 +24,11 @@ export default function DatePicker({ date }) {
     >
       <DatePickerInput
         placeholder="yyyy-dd-mm"
+        labelText="Select Date"
         id="date-picker-single"
         autoComplete="off"
         readOnly
+        hideLabel
       />
     </CarbonDatePicker>
   )
