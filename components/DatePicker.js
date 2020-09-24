@@ -24,7 +24,6 @@ export default function DatePicker({ date }) {
     >
       <DatePickerInput
         placeholder="yyyy-dd-mm"
-        labelText="Date Picker label"
         id="date-picker-single"
         autoComplete="off"
         readOnly
