@@ -6,7 +6,9 @@ export default function GamesTable({ games }) {
     <Grid key={i}>
       <Row className="games-table__date">
         <Column>
-          <h3>{format(new Date(days[0].dateView), 'PPPP')}</h3>
+          {days[0]?.dateView && (
+            <h3>{format(new Date(days[0].dateView), 'PPPP')}</h3>
+          )}
         </Column>
       </Row>
       {days.map((game, i) => (

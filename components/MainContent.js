@@ -41,6 +41,21 @@ export default function MainContenet({ calledFrom, games, date }) {
       }
     })
   }
+
+  // filter the games based on selected filter
+  let filteredGames = []
+  if (games && games.length > 0) {
+    if (!selectedFilter.id) {
+      filteredGames = [...games]
+    } else {
+      filteredGames = games.map((day) =>
+        day.filter((game) =>
+          game?.tags?.some((tag) => tag?.id === selectedFilter.id)
+        )
+      )
+    }
+  }
+
   return (
     <Content className="page__content">
       <Grid fullWidth>
@@ -63,7 +78,7 @@ export default function MainContenet({ calledFrom, games, date }) {
         </Row>
         <Row>
           <Column lg={16}>
-            <GamesTable games={games} />
+            <GamesTable games={filteredGames} />
           </Column>
         </Row>
       </Grid>
