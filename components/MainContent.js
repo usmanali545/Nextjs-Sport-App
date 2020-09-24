@@ -81,6 +81,15 @@ export default function MainContenet({ calledFrom, games, date }) {
             <GamesTable games={filteredGames} />
           </Column>
         </Row>
+        <Row>
+          <Column style={{ textAlign: 'center' }}>
+            created with ❤️ by{' '}
+            <a href="https://github.com/blackpr" target="_blank">
+              {' '}
+              @blackpr
+            </a>
+          </Column>
+        </Row>
       </Grid>
     </Content>
   )

@@ -26,6 +26,8 @@ export default function SelectMonthDays({ date }) {
       {monthDays.map((date) => {
         let dayNumber = date.getDate()
         let dateAsUrlFormated = format(date, 'yyyy-MM-dd')
+        let showTodayBorder =
+          dayNumber === todayDayNumber && !(selectedDay === dayNumber)
         return (
           <NextLink
             passHref
@@ -37,9 +39,7 @@ export default function SelectMonthDays({ date }) {
               kind={selectedDay === dayNumber ? 'tertiary' : 'ghost'}
               key={dayNumber}
               as="a"
-              className={
-                dayNumber === todayDayNumber ? 'selected-month__today' : ''
-              }
+              className={showTodayBorder ? 'selected-month__today' : ''}
             >
               {dayNumber}
             </Button>
