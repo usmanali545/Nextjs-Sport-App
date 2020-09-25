@@ -14,7 +14,6 @@ export default function SelectMonthDays({ date }) {
   let selectedDate = date || new Date()
   let selectedDay = selectedDate.getDate()
   let monthText = format(selectedDate, 'MMMM')
-  let todayDayNumber = new Date().getDate()
 
   let monthDays = eachDayOfInterval({
     start: startOfMonth(selectedDate),
