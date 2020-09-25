@@ -14,7 +14,6 @@ const LoadingNoSSR = dynamic(() => import('components/Loading'), {
 
 export default function SportsOnDate({ data }) {
   const router = useRouter()
-  console.log(router.query.date)
 
   if (router.isFallback) {
     return <LoadingNoSSR />

@@ -9,7 +9,6 @@ export default function DatePicker({ date }) {
   const router = useRouter()
 
   function handleChange(dates, currentDateString) {
-    // todo:
     // console.log(dates[0] instanceof Date)
     // console.log(dates[0])
     const dateForUrl = format(dates[0], 'yyyy-MM-dd')
