@@ -6,6 +6,7 @@ import {
   getMonth,
   startOfMonth,
   eachDayOfInterval,
+  isToday,
 } from 'date-fns'
 import NextLink from 'next/link'
 
@@ -26,8 +27,7 @@ export default function SelectMonthDays({ date }) {
       {monthDays.map((date) => {
         let dayNumber = date.getDate()
         let dateAsUrlFormated = format(date, 'yyyy-MM-dd')
-        let showTodayBorder =
-          dayNumber === todayDayNumber && !(selectedDay === dayNumber)
+        let showTodayBorder = isToday(date) && !(selectedDay === dayNumber)
         return (
           <NextLink
             passHref
