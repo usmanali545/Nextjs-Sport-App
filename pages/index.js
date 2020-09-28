@@ -27,6 +27,10 @@ export default function Home() {
       <Head>
         <title>Sports TV Program</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="C2Pms5muBSXaPEw4r46887wfPWzg0NkwmPPk37a8tMg"
+        />
       </Head>
 
       <Header />
